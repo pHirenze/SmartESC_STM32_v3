@@ -43,8 +43,8 @@
 #define BRAKEMAX 190
 
 // parameters for speed calculation
-#define WHEEL_CIRCUMFERENCE 710 //690 for original M365 motor
-#define GEAR_RATIO 15 //15 for original M365 motor
+#define WHEEL_CIRCUMFERENCE 715 //690 for original M365 motor
+#define GEAR_RATIO 20 //15 for original M365 motor
 
 // speed limits for invividual modes in kph
 #define SPEEDLIMIT_ECO 16
