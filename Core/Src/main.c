@@ -522,8 +522,8 @@ int main(void) {
 	ui16_ph2_offset = ui16_ph2_offset >> 4;
 	ui16_ph3_offset = ui16_ph3_offset >> 4;
 
-	printf_("phase current offsets:  %d, %d, %d \n ", ui16_ph1_offset,
-			ui16_ph2_offset, ui16_ph3_offset);
+	//printf_("phase current offsets:  %d, %d, %d \n ", ui16_ph1_offset,
+	//		ui16_ph2_offset, ui16_ph3_offset);
 
 //while(1){}
 
@@ -535,7 +535,7 @@ int main(void) {
        // autodetect();
 
    	EE_ReadVariable(EEPROM_POS_HALL_ORDER, &i16_hall_order);
-   	printf_("Hall_Order: %d \n",i16_hall_order);
+   	//printf_("Hall_Order: %d \n",i16_hall_order);
    	// set varaiables to value from emulated EEPROM only if valid
    	if(i16_hall_order!=0xFFFF) {
    		int16_t temp;
@@ -1624,7 +1624,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle) {
 }
 /*
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle) {
-	printf_("Lishui FOC v0.9 \n ");
+//	printf_("Lishui FOC v0.9 \n ");
 }
 */
 void HAL_UART_ErrorCallback(UART_HandleTypeDef *UartHandle) {
