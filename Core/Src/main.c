@@ -669,7 +669,7 @@ int main(void) {
 				  }
 			  if(ui16_KV_detect_counter>200){
 				  MS.KV_detect_flag +=10*dir;
-				  printf_("KV_cumulated= %d,%d\n",ui32_KV>>4,MS.u_q);
+				  //printf_("KV_cumulated= %d,%d\n",ui32_KV>>4,MS.u_q);
 				  ui16_KV_detect_counter=0;
 
 			  }
@@ -687,7 +687,7 @@ int main(void) {
 				  MS.angle_est=SPEED_PLL;//switch back to config setting
 				  MS.KV_detect_flag=0;
 
-				  printf_("KV detection finished!%d\n",KVtemp);
+				  //printf_("KV detection finished!%d\n",KVtemp);
 			  	  HAL_FLASH_Unlock();
 			      	  EE_WriteVariable(EEPROM_POS_KV, (int16_t) (KVtemp));
 			      HAL_FLASH_Lock();
@@ -779,7 +779,7 @@ int main(void) {
 			MS.Temperature = adcData[ADC_TEMP] * 41 >> 8; //0.16 is calibration constant: Analog_in[10mV/°C]/ADC value. Depending on the sensor LM35)
 			MS.Voltage = q31_Battery_Voltage;
 
-			printf_("%d, %d, %d, %d, %d, %d, %d, %d, %d\n", MS.system_state,i16_hall_order,i8_recent_rotor_direction,ui8_hall_case,q31_angle_per_tic>>8,uq_cum>>8,ud_cum>>8,iq_cum>>8 , id_cum>>8);
+			//printf_("%d, %d, %d, %d, %d, %d, %d, %d, %d\n", MS.system_state,i16_hall_order,i8_recent_rotor_direction,ui8_hall_case,q31_angle_per_tic>>8,uq_cum>>8,ud_cum>>8,iq_cum>>8 , id_cum>>8);
 
 			MS.Speed=tics_to_speed(q31_tics_filtered>>3);
 
