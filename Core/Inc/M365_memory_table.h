@@ -82,6 +82,6 @@ typedef struct __attribute__ ((__packed__)) {
 	uint32_t colour_strip_3;
 	uint32_t colour_strip_4;
 
-} M365_menory_table_t;
+} M365_memory_table_t;
 
 #endif /* INC_M365_MEMORY_TABLE_H_ */
