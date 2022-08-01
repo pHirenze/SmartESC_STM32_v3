@@ -43,7 +43,7 @@ static uint8_t ui8_target_offset;
 static uint8_t ui8_source_offset;
 
 
-M365_menory_table_t MT;
+M365_memory_table_t MT;
 
 enum bytesOfMessage65 {
 	Throttle = 7,
