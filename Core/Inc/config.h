@@ -40,7 +40,7 @@
 #define THROTTLEOFFSET 45
 #define THROTTLEMAX 175
 #define BRAKEOFFSET 50
-#define BRAKEMAX 150
+#define BRAKEMAX 140
 
 // parameters for speed calculation
 #define WHEEL_CIRCUMFERENCE 715 //690 for original M365 motor
@@ -60,11 +60,11 @@
 #define REGEN_CURRENT 20000
 
 // maximum current for flux weakening in mA
-#define FW_CURRENT_MAX 15000 //max id
+#define FW_CURRENT_MAX 20000 //max id
 
 // maximum battery currents in mA
 #define BATTERYCURRENT_MAX 30000
-#define REGEN_CURRENT_MAX 15000
+#define REGEN_CURRENT_MAX 18000
 
 // battery voltage limits in mV
 #define BATTERYVOLTAGE_MIN 33000
