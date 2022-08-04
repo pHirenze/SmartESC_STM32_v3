@@ -634,10 +634,13 @@ int main(void) {
 		MS.i_q_setpoint_temp = map(q31_tics_filtered >> 3, tics_higher_limit,
 				tics_lower_limit, 0, MS.i_q_setpoint_temp); //ramp down current at speed limit
 
-		if((MS.mode&0x07)==sport || (MS.mode&0x07)==eco){//do flux weakaning
+		if((MS.mode&0x07)==sport){//do flux weakaning
 					if(MS.Speed > FW_MINSPEED) 
-						MS.i_d_setpoint_temp=-map(MS.Speed,(ui32_KV*MS.Voltage/100000)-8,(ui32_KV*MS.Voltage/100000)+30,0,fw_current_max);
+						MS.i_d_setpoint_temp=-map(MS.Speed,(ui32_KV*MS.Voltage/100000)-8,(ui32_KV*MS.Voltage/100000)+30,0,fw_current_max_sport);
 				}
+		else if ((MS.mode&0x07)==eco){
+					if(MS.Speed > FW_MINSPEED) 
+						MS.i_d_setpoint_temp=-map(MS.Speed,(ui32_KV*MS.Voltage/100000)-8,(ui32_KV*MS.Voltage/100000)+30,0,fw_current_max_eco);
 		else MS.i_d_setpoint_temp=0;
 
 		//Check and limit absolute value of current vector
