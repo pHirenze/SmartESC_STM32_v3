@@ -206,7 +206,8 @@ q31_t Hall_45 = 0;
 const q31_t deg_30 = 357913941;
 
 
-const uint16_t fw_current_max = FW_CURRENT_MAX/CAL_I;
+const uint16_t fw_current_max_eco = FW_CURRENT_MAX_ECO/CAL_I;
+const uint16_t fw_current_max_sport = FW_CURRENT_MAX_SPORT/CAL_I;
 
 static q31_t tics_lower_limit;
 static q31_t tics_higher_limit;
