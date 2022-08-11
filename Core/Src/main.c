@@ -437,7 +437,7 @@ int main(void) {
 	//Virtual EEPROM init
 	HAL_FLASH_Unlock();
 	EE_Init();
-	HAL_FLASH_Lock();
+	//HAL_FLASH_Lock();
 
 	MX_ADC1_Init();
 	/* Run the ADC calibration */
@@ -569,7 +569,8 @@ int main(void) {
   		EE_ReadVariable(EEPROM_POS_KV, &ui32_KV);
   		if(!ui32_KV)ui32_KV=111;
   		printf_("KV: %d \n",ui32_KV	);
-
+	HAL_FLASH_Lock();
+		
    	}else{
                 autodetect();
         }
