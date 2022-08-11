@@ -191,7 +191,7 @@ uint8_t assist_factor[10] = { 0, 51, 102, 153, 204, 255, 255, 255, 255, 255 };
 #define EEPROM_POS_HALL_26		0x0007
 #define EEPROM_POS_HALL_64		0x0008
 
-uint16_t VirtAddVarTab[NB_OF_VAR] = { 	EEPROM_POS_HALL_ORDER,
+uint16_t VirtAddVarTab[7] = { 	EEPROM_POS_HALL_ORDER,
 				     	EEPROM_POS_KV,
 										EEPROM_POS_HALL_45,
 										EEPROM_POS_HALL_51,
