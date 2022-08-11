@@ -182,23 +182,14 @@ char char_dyn_adc_state = 1;
 char char_dyn_adc_state_old = 1;
 uint8_t assist_factor[10] = { 0, 51, 102, 153, 204, 255, 255, 255, 255, 255 };
 
-#define EEPROM_POS_HALL_ORDER	0x0001
-#define EEPROM_POS_KV		0x0002
-#define EEPROM_POS_HALL_45 		0x0003
-#define EEPROM_POS_HALL_51		0x0004
-#define EEPROM_POS_HALL_13		0x0005
-#define EEPROM_POS_HALL_32		0x0006
-#define EEPROM_POS_HALL_26		0x0007
-#define EEPROM_POS_HALL_64		0x0008
-
-uint16_t VirtAddVarTab[8] = { 	EEPROM_POS_HALL_ORDER,
-				     	EEPROM_POS_KV,
-										EEPROM_POS_HALL_45,
-										EEPROM_POS_HALL_51,
-										EEPROM_POS_HALL_13,
-										EEPROM_POS_HALL_32,
-										EEPROM_POS_HALL_26,
-										EEPROM_POS_HALL_64
+uint16_t VirtAddVarTab[NB_OF_VAR] = { 	EEPROM_POS_HALL_ORDER,
+				     	EEPROM_POS_HALL_45,
+					EEPROM_POS_HALL_51,
+					EEPROM_POS_HALL_13,
+					EEPROM_POS_HALL_32,
+					EEPROM_POS_HALL_26,
+					EEPROM_POS_HALL_64,
+				     	EEPROM_POS_KV
 									};
 uint16_t halltemp = 0;
 
@@ -350,24 +341,24 @@ void autodetect() {
 
 	if (i8_recent_rotor_direction == 1) {
 		i16_hall_order = 1;
-		EE_WriteVariable(VirtAddVarTab[0], &i16_hall_order);				
+		EE_WriteVariable(EEPROM_POS_HALL_ORDER, &i16_hall_order);				
 	} else {
 		i16_hall_order = -1;
-		EE_WriteVariable(VirtAddVarTab[0], &i16_hall_order);
+		EE_WriteVariable(EEPROM_POS_HALL_ORDER, &i16_hall_order);
 		
 	}
 	halltemp = Hall_45 >> 16;
-	EE_WriteVariable(VirtAddVarTab[2], &halltemp);
+	EE_WriteVariable(VirtAddVarTab[1], &halltemp);
 	halltemp = Hall_51 >> 16;
-	EE_WriteVariable(VirtAddVarTab[3], &halltemp);
+	EE_WriteVariable(VirtAddVarTab[2], &halltemp);
 	halltemp = Hall_13 >> 16;
-	EE_WriteVariable(VirtAddVarTab[4], &halltemp);
+	EE_WriteVariable(VirtAddVarTab[3], &halltemp);
 	halltemp = Hall_32 >> 16;
-	EE_WriteVariable(VirtAddVarTab[5], &halltemp);
+	EE_WriteVariable(VirtAddVarTab[4], &halltemp);
 	halltemp = Hall_26 >> 16;
-	EE_WriteVariable(VirtAddVarTab[6], &halltemp);
+	EE_WriteVariable(VirtAddVarTab[5], &halltemp);
 	halltemp = Hall_64 >> 16;
-	EE_WriteVariable(VirtAddVarTab[7], &halltemp);
+	EE_WriteVariable(VirtAddVarTab[6], &halltemp);
 
 	HAL_FLASH_Lock();
 
@@ -561,31 +552,31 @@ int main(void) {
    	if(i16_hall_order!=0xFFFF) {
    		int16_t temp;
 
-   		EE_ReadVariable(VirtAddVarTab[2], &temp);
+   		EE_ReadVariable(VirtAddVarTab[1], &temp);
    		Hall_45 = temp<<16;
    		printf_("Hall_45: %d \n",	(int16_t) (((Hall_45 >> 23) * 180) >> 8));
 
-   		EE_ReadVariable(VirtAddVarTab[3], &temp);
+   		EE_ReadVariable(VirtAddVarTab[2], &temp);
    		Hall_51 = temp<<16;
    		printf_("Hall_51: %d \n",	(int16_t) (((Hall_51 >> 23) * 180) >> 8));
 
-   		EE_ReadVariable(VirtAddVarTab[4], &temp);
+   		EE_ReadVariable(VirtAddVarTab[3], &temp);
    		Hall_13 = temp<<16;
    		printf_("Hall_13: %d \n",	(int16_t) (((Hall_13 >> 23) * 180) >> 8));
 
-   		EE_ReadVariable(VirtAddVarTab[5], &temp);
+   		EE_ReadVariable(VirtAddVarTab[4], &temp);
    		Hall_32 = temp<<16;
    		printf_("Hall_32: %d \n",	(int16_t) (((Hall_32 >> 23) * 180) >> 8));
 
-   		EE_ReadVariable(VirtAddVarTab[6], &temp);
+   		EE_ReadVariable(VirtAddVarTab[5], &temp);
    		Hall_26 = temp<<16;
    		printf_("Hall_26: %d \n",	(int16_t) (((Hall_26 >> 23) * 180) >> 8));
 
-   		EE_ReadVariable(VirtAddVarTab[7], &temp);
+   		EE_ReadVariable(VirtAddVarTab[6], &temp);
   		Hall_64 = temp<<16;
   		printf_("Hall_64: %d \n",	(int16_t) (((Hall_64 >> 23) * 180) >> 8));
 
-  		EE_ReadVariable(VirtAddVarTab[1], &ui32_KV);
+  		EE_ReadVariable(VirtAddVarTab[7], &ui32_KV);
   		if(!ui32_KV)ui32_KV=111;
   		printf_("KV: %d \n",ui32_KV	);
 	HAL_FLASH_Lock();
