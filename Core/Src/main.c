@@ -200,6 +200,9 @@ uint16_t VirtAddVarTab[NB_OF_VAR] = { 	EEPROM_POS_HALL_ORDER,
 										EEPROM_POS_HALL_26,
 										EEPROM_POS_HALL_64
 									};
+uint16_t halltemp = 0;
+
+
 enum{Stop, SixStep, Interpolation, PLL, IdleRun};
 q31_t switchtime[3];
 volatile uint16_t adcData[8]; //Buffer for ADC1 Input
@@ -346,18 +349,25 @@ void autodetect() {
 	HAL_FLASH_Unlock();
 
 	if (i8_recent_rotor_direction == 1) {
-		EE_WriteVariable(VirtAddVarTab[0], 1);
 		i16_hall_order = 1;
+		EE_WriteVariable(VirtAddVarTab[0], &i16_hall_order);				
 	} else {
-		EE_WriteVariable(VirtAddVarTab[0], -1);
 		i16_hall_order = -1;
+		EE_WriteVariable(VirtAddVarTab[0], &i16_hall_order);
+		
 	}
-	EE_WriteVariable(VirtAddVarTab[2], Hall_45 >> 16);
-	EE_WriteVariable(VirtAddVarTab[3], Hall_51 >> 16);
-	EE_WriteVariable(VirtAddVarTab[4], Hall_13 >> 16);
-	EE_WriteVariable(VirtAddVarTab[5], Hall_32 >> 16);
-	EE_WriteVariable(VirtAddVarTab[6], Hall_26 >> 16);
-	EE_WriteVariable(VirtAddVarTab[7], Hall_64 >> 16);
+	halltemp = Hall_45 >> 16;
+	EE_WriteVariable(VirtAddVarTab[2], &halltemp);
+	halltemp = Hall_51 >> 16;
+	EE_WriteVariable(VirtAddVarTab[3], &halltemp);
+	halltemp = Hall_13 >> 16;
+	EE_WriteVariable(VirtAddVarTab[4], &halltemp);
+	halltemp = Hall_32 >> 16;
+	EE_WriteVariable(VirtAddVarTab[5], &halltemp);
+	halltemp = Hall_26 >> 16;
+	EE_WriteVariable(VirtAddVarTab[6], &halltemp);
+	halltemp = Hall_64 >> 16;
+	EE_WriteVariable(VirtAddVarTab[7], &halltemp);
 
 	HAL_FLASH_Lock();
 
