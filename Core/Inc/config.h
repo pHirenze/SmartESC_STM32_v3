@@ -65,8 +65,8 @@
 #define FW_MINSPEED 25
 
 // maximum battery currents in mA
-#define BATTERYCURRENT_MAX 30000
-#define REGEN_CURRENT_MAX 20000
+#define BATTERYCURRENT_MAX 20000
+#define REGEN_CURRENT_MAX 10000
 
 // battery voltage limits in mV
 #define BATTERYVOLTAGE_MIN 33000
