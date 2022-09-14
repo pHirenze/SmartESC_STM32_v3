@@ -135,7 +135,7 @@ void M365Dashboard_init(UART_HandleTypeDef huart1) {
 
 }
 
-void search_DashboardMessage(MotorState_t *MS, MotorParams_t *MP, UART_HandleTypeDef huart1){
+void search_DashboardMessage(MotorState_t *MS, MotorParams_t *MP, UART_HandleTypeDef huart3){
 
 	if(ui32_timeoutcounter>3200&&MT.ESC_status_2 != 0x0802){
 
@@ -144,18 +144,18 @@ void search_DashboardMessage(MotorState_t *MS, MotorParams_t *MP, UART_HandleTyp
 		//printf_("DMA Receive timeout! \n");
 		HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
 		ui8_state=STATE_LOST;
-	  	CLEAR_BIT(DMA1_Channel5->CCR, DMA_CCR_EN);
-	  	DMA1_Channel5->CNDTR=sizeof(ui8_rx_buffer);
-	  	SET_BIT(DMA1_Channel5->CCR, DMA_CCR_EN);
+	  	CLEAR_BIT(DMA1_Channel3->CCR, DMA_CCR_EN);
+	  	DMA1_Channel3->CNDTR=sizeof(ui8_rx_buffer);
+	  	SET_BIT(DMA1_Channel3->CCR, DMA_CCR_EN);
 
-		if (HAL_UART_Receive_DMA(&huart1, (uint8_t*) ui8_rx_buffer, sizeof(ui8_rx_buffer)) != HAL_OK) {
+		if (HAL_UART_Receive_DMA(&huart3, (uint8_t*) ui8_rx_buffer, sizeof(ui8_rx_buffer)) != HAL_OK) {
 			Error_Handler();
 		}
 
 	}
 
 
-	ui8_recentpointerposition = sizeof(ui8_rx_buffer) - (DMA1_Channel5->CNDTR); //Pointer of UART1RX DMA Channel
+	ui8_recentpointerposition = sizeof(ui8_rx_buffer) - (DMA1_Channel3->CNDTR); //Pointer of UART3RX DMA Channel
 		if (ui8_recentpointerposition<ui8_oldpointerposition){
 			ui8_oldpointerposition=ui8_recentpointerposition-1;
 			ui8_state=STATE_LOST;
@@ -183,11 +183,11 @@ void search_DashboardMessage(MotorState_t *MS, MotorParams_t *MP, UART_HandleTyp
 			case STATE_LENGTH_DETECTED: { //read whole message and call processing
 				if(ui8_oldpointerposition==ui8_messagestartpos+ui8_messagelength-1){
 					memcpy(ui8_dashboardmessage,ui8_rx_buffer+ui8_messagestartpos,ui8_messagelength);
-					process_DashboardMessage( MS,  MP, (uint8_t*)&ui8_dashboardmessage,ui8_messagelength,huart1);
+					process_DashboardMessage( MS,  MP, (uint8_t*)&ui8_dashboardmessage,ui8_messagelength,huart3);
 					ui8_state=STATE_LOST;
-				  	   CLEAR_BIT(DMA1_Channel5->CCR, DMA_CCR_EN);
-				  	   DMA1_Channel5->CNDTR=sizeof(ui8_rx_buffer);
-				  	   SET_BIT(DMA1_Channel5->CCR, DMA_CCR_EN);
+				  	   CLEAR_BIT(DMA1_Channel3->CCR, DMA_CCR_EN);
+				  	   DMA1_Channel3->CNDTR=sizeof(ui8_rx_buffer);
+				  	   SET_BIT(DMA1_Channel3->CCR, DMA_CCR_EN);
 				  	   ui32_timeoutcounter=0;
 
 
@@ -201,7 +201,7 @@ void search_DashboardMessage(MotorState_t *MS, MotorParams_t *MP, UART_HandleTyp
 		ui32_timeoutcounter++;
 }
 
-void process_DashboardMessage(MotorState_t *MS, MotorParams_t *MP, uint8_t *message, uint8_t length, UART_HandleTypeDef huart1 ){
+void process_DashboardMessage(MotorState_t *MS, MotorParams_t *MP, uint8_t *message, uint8_t length, UART_HandleTypeDef huart3 ){
 	//while(HAL_UART_GetState(&huart1)!=HAL_UART_STATE_READY){}
 	//HAL_Delay(2); // bad style, but wait for characters coming in, if message is longer than expected
 	if(!checkCRC(message, length)){
