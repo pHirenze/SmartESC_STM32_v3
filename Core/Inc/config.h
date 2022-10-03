@@ -52,9 +52,9 @@
 #define SPEEDLIMIT_SPORT 70
 
 // motor current limits for invividual modes in mA, see default settings at https://max.cfw.sh/#
-#define PH_CURRENT_MAX_ECO 8000
-#define PH_CURRENT_MAX_NORMAL 10000
-#define PH_CURRENT_MAX_SPORT 12000
+#define PH_CURRENT_MAX_ECO 15000
+#define PH_CURRENT_MAX_NORMAL 18000
+#define PH_CURRENT_MAX_SPORT 24000
 
 // motor current limit for regen in mA
 #define REGEN_CURRENT 0
@@ -65,7 +65,7 @@
 #define FW_MINSPEED 25
 
 // maximum battery currents in mA
-#define BATTERYCURRENT_MAX 10000
+#define BATTERYCURRENT_MAX 12000
 #define REGEN_CURRENT_MAX 0
 
 // battery voltage limits in mV
