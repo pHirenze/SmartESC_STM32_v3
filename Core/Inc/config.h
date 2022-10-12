@@ -57,7 +57,7 @@
 #define PH_CURRENT_MAX_SPORT 24000
 
 // motor current limit for regen in mA
-#define REGEN_CURRENT 0
+#define REGEN_CURRENT 14000
 
 // maximum current for flux weakening in mA
 #define FW_CURRENT_MAX_ECO 0 //max id
@@ -65,8 +65,8 @@
 #define FW_MINSPEED 25
 
 // maximum battery currents in mA
-#define BATTERYCURRENT_MAX 14000
-#define REGEN_CURRENT_MAX 0
+#define BATTERYCURRENT_MAX 27000
+#define REGEN_CURRENT_MAX 10000
 
 // battery voltage limits in mV
 #define BATTERYVOLTAGE_MIN 33000
