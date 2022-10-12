@@ -52,9 +52,9 @@
 #define SPEEDLIMIT_SPORT 70
 
 // motor current limits for invividual modes in mA, see default settings at https://max.cfw.sh/#
-#define PH_CURRENT_MAX_ECO 15000
-#define PH_CURRENT_MAX_NORMAL 18000
-#define PH_CURRENT_MAX_SPORT 24000
+#define PH_CURRENT_MAX_ECO 24000
+#define PH_CURRENT_MAX_NORMAL 32000
+#define PH_CURRENT_MAX_SPORT 40000
 
 // motor current limit for regen in mA
 #define REGEN_CURRENT 14000
