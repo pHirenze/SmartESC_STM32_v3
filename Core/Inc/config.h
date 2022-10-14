@@ -60,9 +60,9 @@
 #define REGEN_CURRENT 14000
 
 // maximum current for flux weakening in mA
-#define FW_CURRENT_MAX_ECO 0 //max id
+#define FW_CURRENT_MAX_ECO 8000 //max id
 #define FW_CURRENT_MAX_SPORT 0 //max id
-#define FW_MINSPEED 25
+#define FW_MINSPEED 24
 
 // maximum battery currents in mA
 #define BATTERYCURRENT_MAX 27000
