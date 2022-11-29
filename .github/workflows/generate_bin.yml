@@ -2,9 +2,9 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ v0.5 ]
+    branches: [ SNSC2.3 ]
   pull_request:
-    branches: [ v0.5 ]
+    branches: [ SNSC2.3 ]
 
 jobs:
   build:
