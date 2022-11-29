@@ -65,15 +65,15 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define LED_Pin GPIO_PIN_1
 #define LED_GPIO_Port GPIOD
-#define UART1_Tx_Pin GPIO_PIN_6
-#define UART1_Tx_GPIO_Port GPIOB
+#define UART1_Tx_Pin GPIO_PIN_2
+#define UART1_Tx_GPIO_Port GPIOA
 #define BrakeLight_Pin GPIO_PIN_15
 #define BrakeLight_GPIO_Port GPIOA
 #define Temp_Pin GPIO_PIN_0
 #define Temp_GPIO_Port GPIOA
-#define Throttle_Pin GPIO_PIN_1
-#define Throttle_GPIO_Port GPIOA
-#define Batt_Voltage_Pin GPIO_PIN_2
+#define Throttle_Pin GPIO_PIN_0
+#define Throttle_GPIO_Port GPIOD
+#define Batt_Voltage_Pin GPIO_PIN_1
 #define Batt_Voltage_GPIO_Port GPIOA
 #define Phase_Current_1_Pin GPIO_PIN_3
 #define Phase_Current_1_GPIO_Port GPIOA
@@ -96,8 +96,8 @@ void Error_Handler(void);
 
 #define PWR_BTN_Pin GPIO_PIN_14
 #define PWR_BTN_GPIO_Port GPIOC
-#define TPS_ENA_Pin GPIO_PIN_15
-#define TPS_ENA_GPIO_Port GPIOC
+#define TPS_ENA_Pin GPIO_PIN_11
+#define TPS_ENA_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
 
 #define PUSHASSIST_CURRENT 30
