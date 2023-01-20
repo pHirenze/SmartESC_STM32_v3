@@ -137,7 +137,7 @@ void FOC_calculation(int16_t int16_i_as, int16_t int16_i_bs, q31_t q31_teta,
 	//call SVPWM calculation
 	svpwm(q31_u_alpha, q31_u_beta);
 	//temp6=__HAL_TIM_GET_COUNTER(&htim1);
-	HAL_GPIO_WritePin(UART1_Tx_GPIO_Port, UART1_Tx_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(USART2_Tx_GPIO_Port, USART2_Tx_Pin, GPIO_PIN_RESET);
 
 }
 //PI Control for quadrature current iq (torque)
