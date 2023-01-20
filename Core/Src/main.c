@@ -412,6 +412,7 @@ int main(void) {
  	MX_GPIO_Init();
 	MX_DMA_Init();
 	MX_USART1_UART_Init();
+	MX_USART1_UART_Init();
 	MX_USART3_UART_Init();
 
 	//initialize MS struct.
@@ -512,7 +513,7 @@ int main(void) {
 	}
 
 #if (DISPLAY_TYPE == DISPLAY_TYPE_M365DASHBOARD)
-	M365Dashboard_init(huart1);
+	M365Dashboard_init(huart2);
 	PWR_init();
 
 #endif
@@ -609,7 +610,7 @@ int main(void) {
 
 		//display message processing
 #if (DISPLAY_TYPE == DISPLAY_TYPE_M365DASHBOARD)
-		search_DashboardMessage(&MS, &MP, huart1);
+		search_DashboardMessage(&MS, &MP, huart2);
 		checkButton(&MP, &MS);
 #endif
 
@@ -1214,7 +1215,26 @@ static void MX_USART1_UART_Init(void) {
 		Error_Handler();
 	}
 	/* USER CODE BEGIN USART1_Init 2 */
+static void MX_USART2_UART_Init(void) {
 
+	/* USER CODE BEGIN USART1_Init 0 */
+
+	/* USER CODE END USART1_Init 0 */
+
+	/* USER CODE BEGIN USART1_Init 1 */
+
+	/* USER CODE END USART1_Init 1 */
+	huart1.Instance = USART2;
+	huart1.Init.BaudRate = 115200;
+	huart1.Init.WordLength = UART_WORDLENGTH_8B;
+	huart1.Init.StopBits = UART_STOPBITS_1;
+	huart1.Init.Parity = UART_PARITY_NONE;
+	huart1.Init.Mode = UART_MODE_TX_RX;
+	huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+	huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+	if (HAL_HalfDuplex_Init(&huart2) != HAL_OK) {
+		Error_Handler();
+	}
 	/* USER CODE END USART1_Init 2 */
 
 }
@@ -1641,7 +1661,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle) {
 	ui8_UART_TxCplt_flag = 1;
 
-	if(UartHandle==&huart1)	HAL_HalfDuplex_EnableReceiver(&huart1);
+	if(UartHandle==&huart2)	HAL_HalfDuplex_EnableReceiver(&huart2);
 
 }
 /*
