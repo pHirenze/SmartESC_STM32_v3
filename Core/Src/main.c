@@ -64,10 +64,13 @@ TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart1;
+UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart3;
 
 DMA_HandleTypeDef hdma_usart1_tx;
 DMA_HandleTypeDef hdma_usart1_rx;
+DMA_HandleTypeDef hdma_usart2_tx;
+DMA_HandleTypeDef hdma_usart2_rx;
 DMA_HandleTypeDef hdma_usart3_tx;
 DMA_HandleTypeDef hdma_usart3_rx;
 
@@ -87,6 +90,7 @@ static void MX_ADC1_Init(void);
 static void MX_ADC2_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
+static void MX_USART2_UART_Init(void);
 static void MX_USART3_UART_Init(void);
 q31_t get_battery_current(q31_t iq,q31_t id,q31_t uq,q31_t ud);
 /* USER CODE BEGIN PFP */
@@ -1303,7 +1307,7 @@ static void MX_GPIO_Init(void) {
 
 //	HAL_GPIO_WritePin(UART1_Tx_GPIO_Port, UART1_Tx_Pin, GPIO_PIN_RESET);
 	/*Configure GPIO pin : UART1Tx_Pin */
-	GPIO_InitStruct.Pin = UART1_Tx_Pin;
+	GPIO_InitStruct.Pin = USART2_Tx_Pin;
 	GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
