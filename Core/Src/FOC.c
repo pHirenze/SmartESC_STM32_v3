@@ -48,7 +48,7 @@ void svpwm(q31_t q31_u_alpha, q31_t q31_u_beta);
 
 void FOC_calculation(int16_t int16_i_as, int16_t int16_i_bs, q31_t q31_teta,
 		 MotorState_t *MS_FOC) {
-	HAL_GPIO_WritePin(UART1_Tx_GPIO_Port, UART1_Tx_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(USART2_Tx_GPIO_Port, USART2_Tx_Pin, GPIO_PIN_SET);
 	q31_t q31_i_alpha = 0;
 	q31_t q31_i_beta = 0;
 	q31_t q31_u_alpha = 0;
