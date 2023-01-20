@@ -67,8 +67,8 @@ void Error_Handler(void);
 #define LED_GPIO_Port GPIOA
 #define USART2_Tx_Pin GPIO_PIN_2
 #define USART2_Tx_GPIO_Port GPIOA
-#define BrakeLight_Pin GPIO_PIN_1
-#define BrakeLight_GPIO_Port GPIOD
+#define BrakeLight_Pin GPIO_PIN_9
+#define BrakeLight_GPIO_Port GPIOB
 #define Temp_Pin GPIO_PIN_0
 #define Temp_GPIO_Port GPIOA
 #define Throttle_Pin GPIO_PIN_0
