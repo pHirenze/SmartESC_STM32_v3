@@ -63,12 +63,12 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_Pin GPIO_PIN_1
-#define LED_GPIO_Port GPIOD
+#define LED_Pin GPIO_PIN_15
+#define LED_GPIO_Port GPIOA
 #define USART2_Tx_Pin GPIO_PIN_2
 #define USART2_Tx_GPIO_Port GPIOA
-#define BrakeLight_Pin GPIO_PIN_15
-#define BrakeLight_GPIO_Port GPIOA
+#define BrakeLight_Pin GPIO_PIN_1
+#define BrakeLight_GPIO_Port GPIOD
 #define Temp_Pin GPIO_PIN_0
 #define Temp_GPIO_Port GPIOA
 #define Throttle_Pin GPIO_PIN_0
