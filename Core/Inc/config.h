@@ -49,7 +49,7 @@
 // speed limits for invividual modes in kph
 #define SPEEDLIMIT_ECO 70
 #define SPEEDLIMIT_NORMAL 70
-#define SPEEDLIMIT_SPORT 70
+#define SPEEDLIMIT_SPORT 27
 
 // motor current limits for invividual modes in mA, see default settings at https://max.cfw.sh/#
 #define PH_CURRENT_MAX_ECO 24000
@@ -78,7 +78,7 @@
 
 // settings for speed PLL (angle estimation)
 #define SPEED_PLL 1 //1 for using PLL, 0 for angle extrapolation
-#define P_FACTOR_PLL 8 //7 for original M365 motor
-#define I_FACTOR_PLL 8 //7 for original M365 motor
+#define P_FACTOR_PLL 7 //7 for original M365 motor
+#define I_FACTOR_PLL 7 //7 for original M365 motor
 
 #endif /* CONFIG_H_ */
