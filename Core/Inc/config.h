@@ -48,7 +48,7 @@
 
 // speed limits for invividual modes in kph
 #define SPEEDLIMIT_ECO 27
-#define SPEEDLIMIT_NORMAL 70
+#define SPEEDLIMIT_NORMAL 32
 #define SPEEDLIMIT_SPORT 70
 
 // motor current limits for invividual modes in mA, see default settings at https://max.cfw.sh/#
@@ -57,7 +57,7 @@
 #define PH_CURRENT_MAX_SPORT 60000
 
 // motor current limit for regen in mA
-#define REGEN_CURRENT 14000
+#define REGEN_CURRENT 20000
 
 // maximum current for flux weakening in mA
 #define FW_CURRENT_MAX_ECO 0 //max id
@@ -65,11 +65,11 @@
 #define FW_MINSPEED 24
 
 // maximum battery currents in mA
-#define BATTERYCURRENT_MAX 40000
+#define BATTERYCURRENT_MAX 45000
 #define REGEN_CURRENT_MAX 15000
 
 // battery voltage limits in mV
-#define BATTERYVOLTAGE_MIN 30500
+#define BATTERYVOLTAGE_MIN 33500
 #define BATTERYVOLTAGE_MAX 41700
 
 
@@ -78,7 +78,7 @@
 
 // settings for speed PLL (angle estimation)
 #define SPEED_PLL 1 //1 for using PLL, 0 for angle extrapolation
-#define P_FACTOR_PLL 5 //7 for original M365 motor
+#define P_FACTOR_PLL 6 //7 for original M365 motor
 #define I_FACTOR_PLL 8 //7 for original M365 motor
 
 #endif /* CONFIG_H_ */
