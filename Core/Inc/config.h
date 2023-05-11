@@ -47,14 +47,14 @@
 #define GEAR_RATIO 15 //15 for original M365 motor
 
 // speed limits for invividual modes in kph
-#define SPEEDLIMIT_ECO 27
-#define SPEEDLIMIT_NORMAL 32
-#define SPEEDLIMIT_SPORT 70
+#define SPEEDLIMIT_ECO 28
+#define SPEEDLIMIT_NORMAL 30
+#define SPEEDLIMIT_SPORT 32
 
 // motor current limits for invividual modes in mA, see default settings at https://max.cfw.sh/#
-#define PH_CURRENT_MAX_ECO 24000
-#define PH_CURRENT_MAX_NORMAL 40000
-#define PH_CURRENT_MAX_SPORT 60000
+#define PH_CURRENT_MAX_ECO 16000
+#define PH_CURRENT_MAX_NORMAL 24000
+#define PH_CURRENT_MAX_SPORT 50000
 
 // motor current limit for regen in mA
 #define REGEN_CURRENT 20000
@@ -65,11 +65,11 @@
 #define FW_MINSPEED 24
 
 // maximum battery currents in mA
-#define BATTERYCURRENT_MAX 45000
+#define BATTERYCURRENT_MAX 40000
 #define REGEN_CURRENT_MAX 15000
 
 // battery voltage limits in mV
-#define BATTERYVOLTAGE_MIN 33500
+#define BATTERYVOLTAGE_MIN 32700
 #define BATTERYVOLTAGE_MAX 41700
 
 
