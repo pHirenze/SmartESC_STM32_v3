@@ -43,7 +43,7 @@
 #define BRAKEMAX 120
 
 // parameters for speed calculation
-#define WHEEL_CIRCUMFERENCE 770 //770 for gen2, 705 for
+#define WHEEL_CIRCUMFERENCE 755 //770 for gen2, 705 for
 #define GEAR_RATIO 15 //15 for original M365 motor
 
 // speed limits for invividual modes in kph
@@ -54,13 +54,13 @@
 // motor current limits for invividual modes in mA, see default settings at https://max.cfw.sh/#
 #define PH_CURRENT_MAX_ECO 16000
 #define PH_CURRENT_MAX_NORMAL 28000
-#define PH_CURRENT_MAX_SPORT 50000
+#define PH_CURRENT_MAX_SPORT 40000
 
 // motor current limit for regen in mA
 #define REGEN_CURRENT 24000
 
 // maximum current for flux weakening in mA
-#define FW_CURRENT_MAX_ECO 10000 //max id
+#define FW_CURRENT_MAX_ECO 2000 //max id
 #define FW_CURRENT_MAX_SPORT 20000 //max id
 #define FW_MINSPEED 24
 
