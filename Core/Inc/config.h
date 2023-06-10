@@ -60,7 +60,7 @@
 #define REGEN_CURRENT 24000
 
 // maximum current for flux weakening in mA
-#define FW_CURRENT_MAX_ECO //max id
+#define FW_CURRENT_MAX_ECO 0 //max id
 #define FW_CURRENT_MAX_SPORT 5000 //max id
 #define FW_MINSPEED 25
 
