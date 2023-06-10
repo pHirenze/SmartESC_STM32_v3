@@ -37,10 +37,10 @@
 #define I_FACTOR_I_D 10
 
 // min and max values of throttle and brake signals in ADC counts
-#define THROTTLEOFFSET 45
-#define THROTTLEMAX 175
+#define THROTTLEOFFSET 42
+#define THROTTLEMAX 178
 #define BRAKEOFFSET 50
-#define BRAKEMAX 120
+#define BRAKEMAX 150
 
 // parameters for speed calculation
 #define WHEEL_CIRCUMFERENCE 755 //770 for gen2, 705 for
@@ -48,20 +48,20 @@
 
 // speed limits for invividual modes in kph
 #define SPEEDLIMIT_ECO 31
-#define SPEEDLIMIT_NORMAL 30
+#define SPEEDLIMIT_NORMAL 31
 #define SPEEDLIMIT_SPORT 33
 
 // motor current limits for invividual modes in mA, see default settings at https://max.cfw.sh/#
-#define PH_CURRENT_MAX_ECO 20000
+#define PH_CURRENT_MAX_ECO 18000
 #define PH_CURRENT_MAX_NORMAL 28000
-#define PH_CURRENT_MAX_SPORT 60000
+#define PH_CURRENT_MAX_SPORT 80000
 
 // motor current limit for regen in mA
 #define REGEN_CURRENT 24000
 
 // maximum current for flux weakening in mA
-#define FW_CURRENT_MAX_ECO 0 //max id
-#define FW_CURRENT_MAX_SPORT 10000 //max id
+#define FW_CURRENT_MAX_ECO //max id
+#define FW_CURRENT_MAX_SPORT 5000 //max id
 #define FW_MINSPEED 25
 
 // maximum battery currents in mA
