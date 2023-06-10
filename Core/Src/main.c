@@ -341,24 +341,24 @@ void autodetect() {
 
 	if (i8_recent_rotor_direction == 1) {
 		i16_hall_order = 1;
-		EE_WriteVariable(EEPROM_POS_HALL_ORDER, &i16_hall_order);				
+		EE_WriteVariable(EEPROM_POS_HALL_ORDER, i16_hall_order);				
 	} else {
 		i16_hall_order = -1;
-		EE_WriteVariable(EEPROM_POS_HALL_ORDER, &i16_hall_order);
+		EE_WriteVariable(EEPROM_POS_HALL_ORDER, i16_hall_order);
 		
 	}
 	halltemp = Hall_45 >> 16;
-	EE_WriteVariable(VirtAddVarTab[1], &halltemp);
+	EE_WriteVariable(VirtAddVarTab[1], halltemp);
 	halltemp = Hall_51 >> 16;
-	EE_WriteVariable(VirtAddVarTab[2], &halltemp);
+	EE_WriteVariable(VirtAddVarTab[2], halltemp);
 	halltemp = Hall_13 >> 16;
-	EE_WriteVariable(VirtAddVarTab[3], &halltemp);
+	EE_WriteVariable(VirtAddVarTab[3], halltemp);
 	halltemp = Hall_32 >> 16;
-	EE_WriteVariable(VirtAddVarTab[4], &halltemp);
+	EE_WriteVariable(VirtAddVarTab[4], halltemp);
 	halltemp = Hall_26 >> 16;
-	EE_WriteVariable(VirtAddVarTab[5], &halltemp);
+	EE_WriteVariable(VirtAddVarTab[5], halltemp);
 	halltemp = Hall_64 >> 16;
-	EE_WriteVariable(VirtAddVarTab[6], &halltemp);
+	EE_WriteVariable(VirtAddVarTab[6], halltemp);
 
 	HAL_FLASH_Lock();
 
