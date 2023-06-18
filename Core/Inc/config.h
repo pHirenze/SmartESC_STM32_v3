@@ -77,7 +77,7 @@
 #define REVERSE 1 //1 for original M365 motor
 
 // settings for speed PLL (angle estimation)
-#define SPEED_PLL 1 //1 for using PLL, 0 for angle extrapolation
+#define SPEED_PLL 0 //1 for using PLL, 0 for angle extrapolation
 #define P_FACTOR_PLL 6 //7 for original M365 motor
 #define I_FACTOR_PLL 8 //7 for original M365 motor
 
