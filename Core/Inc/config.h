@@ -53,23 +53,23 @@
 
 // motor current limits for invividual modes in mA, see default settings at https://max.cfw.sh/#
 #define PH_CURRENT_MAX_ECO 24000
-#define PH_CURRENT_MAX_NORMAL 32000
-#define PH_CURRENT_MAX_SPORT 40000
+#define PH_CURRENT_MAX_NORMAL 38000
+#define PH_CURRENT_MAX_SPORT 60000
 
 // motor current limit for regen in mA
 #define REGEN_CURRENT 14000
 
 // maximum current for flux weakening in mA
-#define FW_CURRENT_MAX_ECO 8000 //max id
+#define FW_CURRENT_MAX_ECO 0 //max id
 #define FW_CURRENT_MAX_SPORT 0 //max id
 #define FW_MINSPEED 24
 
 // maximum battery currents in mA
-#define BATTERYCURRENT_MAX 27000
-#define REGEN_CURRENT_MAX 10000
+#define BATTERYCURRENT_MAX 40000
+#define REGEN_CURRENT_MAX 15000
 
 // battery voltage limits in mV
-#define BATTERYVOLTAGE_MIN 33000
+#define BATTERYVOLTAGE_MIN 32700
 #define BATTERYVOLTAGE_MAX 41700
 
 
