@@ -68,9 +68,9 @@ enum bytesOfGeneralMessage {
 } gen_msg;
 
 
-void M365Dashboard_init(UART_HandleTypeDef huart1) {
+void M365Dashboard_init(UART_HandleTypeDef huart2) {
 //        CLEAR_BIT(huart3.Instance->CR3, USART_CR3_EIE);
-	if (HAL_UART_Receive_DMA(&huart1, (uint8_t*) ui8_rx_buffer, sizeof(ui8_rx_buffer)) != HAL_OK) {
+	if (HAL_UART_Receive_DMA(&huart2, (uint8_t*) ui8_rx_buffer, sizeof(ui8_rx_buffer)) != HAL_OK) {
 		Error_Handler();
 	}
 	ui8_tx_buffer[0] = 0x55;
@@ -135,7 +135,7 @@ void M365Dashboard_init(UART_HandleTypeDef huart1) {
 
 }
 
-void search_DashboardMessage(MotorState_t *MS, MotorParams_t *MP, UART_HandleTypeDef huart1){
+void search_DashboardMessage(MotorState_t *MS, MotorParams_t *MP, UART_HandleTypeDef huart2){
 
 	if(ui32_timeoutcounter>3200&&MT.ESC_status_2 != 0x0802){
 
@@ -148,7 +148,7 @@ void search_DashboardMessage(MotorState_t *MS, MotorParams_t *MP, UART_HandleTyp
 	  	DMA1_Channel5->CNDTR=sizeof(ui8_rx_buffer);
 	  	SET_BIT(DMA1_Channel5->CCR, DMA_CCR_EN);
 
-		if (HAL_UART_Receive_DMA(&huart1, (uint8_t*) ui8_rx_buffer, sizeof(ui8_rx_buffer)) != HAL_OK) {
+		if (HAL_UART_Receive_DMA(&huart2, (uint8_t*) ui8_rx_buffer, sizeof(ui8_rx_buffer)) != HAL_OK) {
 			Error_Handler();
 		}
 
