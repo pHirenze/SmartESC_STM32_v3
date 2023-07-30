@@ -96,8 +96,8 @@ void Error_Handler(void);
 
 #define PWR_BTN_Pin GPIO_PIN_14
 #define PWR_BTN_GPIO_Port GPIOC
-#define TPS_ENA_Pin GPIO_PIN_11
-#define TPS_ENA_GPIO_Port GPIOA
+#define TPS_ENA_Pin GPIO_PIN_3
+#define TPS_ENA_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 #define PUSHASSIST_CURRENT 30
